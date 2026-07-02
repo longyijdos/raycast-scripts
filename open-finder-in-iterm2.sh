@@ -32,6 +32,7 @@ APPLESCRIPT
 )
 
 if [ -z "$item" ]; then
+    echo "Nothing to open"
     exit 0
 fi
 

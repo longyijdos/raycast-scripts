@@ -37,6 +37,7 @@ APPLESCRIPT
 )
 
 if [ -z "$paths" ]; then
+    echo "Nothing to open"
     exit 0
 fi
 
