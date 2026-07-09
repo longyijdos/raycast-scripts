@@ -23,12 +23,15 @@ tell application "Finder"
             set pathText to pathText & POSIX path of (itemRef as alias) & linefeed
         end repeat
 
+        set the clipboard to pathText
         return pathText
     end if
 
     if (count of Finder windows) > 0 then
         set currentFolder to target of front window
-        return POSIX path of (currentFolder as alias)
+        set folderPath to POSIX path of (currentFolder as alias)
+        set the clipboard to folderPath
+        return folderPath
     end if
 
     return ""
@@ -41,5 +44,4 @@ if [ -z "$paths" ]; then
     exit 0
 fi
 
-printf "%s" "$paths" | pbcopy
 echo "Copied path"
