@@ -18,9 +18,18 @@ tell application "Finder"
 
     if selectedItems is not {} then
         set pathText to ""
+        set isFirstPath to true
 
         repeat with itemRef in selectedItems
-            set pathText to pathText & POSIX path of (itemRef as alias) & linefeed
+            set currentPath to POSIX path of (itemRef as alias)
+
+            -- 只在路径之间添加换行，避免末尾出现额外换行
+            if isFirstPath then
+                set pathText to currentPath
+                set isFirstPath to false
+            else
+                set pathText to pathText & linefeed & currentPath
+            end if
         end repeat
 
         set the clipboard to pathText
