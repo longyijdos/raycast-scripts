@@ -2,6 +2,12 @@
 
 个人 Raycast Script Command 集合。
 
+## 使用要求
+
+- 需要 macOS 与 Raycast（所有脚本均为 Raycast Script Command）
+- `open-finder-in-vscode.sh` 需要安装 Visual Studio Code
+- `open-finder-in-iterm2.sh` 需要安装 iTerm2
+
 ## 当前脚本
 
 | 脚本 | 功能 |
