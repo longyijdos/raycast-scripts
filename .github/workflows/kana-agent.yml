@@ -1,0 +1,21 @@
+name: Kana Agent
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  kana:
+    uses: longyijdos/kana/.github/workflows/kana-agent-reusable.yml@main
+    with:
+      config-path: .github/kana/config.toml
+      custom-provider-path: .github/kana/providers/custom.toml
+      kana-version: latest
+    secrets:
+      KANA_GITHUB_TOKEN: ${{ secrets.KANA_GITHUB_TOKEN }}
+      KANA_MODEL_API_KEY: ${{ secrets.KANA_MODEL_API_KEY }}
